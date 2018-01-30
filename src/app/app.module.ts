@@ -10,8 +10,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { OauthService } from './services/oauth.service';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EndpointSecuredService } from './services/endpoint-secured/endpoint-secured.service';
+
+import { AuthInterceptor } from './interceptors/index';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { EndpointSecuredService } from './services/endpoint-secured/endpoint-sec
   ],
   providers: [
     OauthService,
-    EndpointSecuredService
+    EndpointSecuredService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
