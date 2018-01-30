@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { OauthService } from '../services/oauth.service';
+import { EndpointSecuredService } from '../services/endpoint-secured/endpoint-secured.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +16,9 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private oauthService: OauthService) {
+    private oauthService: OauthService,
+    private endpointSecuredService: EndpointSecuredService
+  ) {
       this.oauthData = oauthService.getData();
     }
 
@@ -43,6 +46,12 @@ export class DashboardComponent implements OnInit {
         console.error('changeCodeForToken response from DashboardComponent', error);
       }
     );
+  }
+
+  requestEndpointSecured() {
+    this.endpointSecuredService.call().subscribe(data => {
+      console.log(data);
+    });
   }
 
 }

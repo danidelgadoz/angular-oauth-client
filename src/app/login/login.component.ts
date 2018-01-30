@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { OauthService } from '../services/oauth.service';
+import { EndpointSecuredService } from '../services/endpoint-secured/endpoint-secured.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,10 @@ export class LoginComponent implements OnInit {
   curlRequest: string;
   userAccount: Number;
 
-  constructor(private oauthService: OauthService) {
+  constructor(
+    private oauthService: OauthService,
+    private endpointSecuredService: EndpointSecuredService
+  ) {
     this.oauthData = oauthService.getData();
     this.userAccount = 4557886000000018;
   }
@@ -32,6 +36,12 @@ export class LoginComponent implements OnInit {
     //     this.oauthService.setData(this.oauthData);
     //     window.location.href = url;
     // }
+  }
+
+  requestEndpointSecured() {
+    this.endpointSecuredService.call().subscribe(data => {
+      console.log(data);
+    });
   }
 
 }
