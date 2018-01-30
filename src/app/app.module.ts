@@ -10,6 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { OauthService } from './services/oauth.service';
 import { HttpModule } from '@angular/http';
+import { EndpointSecuredService } from './services/endpoint-secured/endpoint-secured.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpModule } from '@angular/http';
     HttpModule
   ],
   providers: [
-    OauthService
+    OauthService,
+    EndpointSecuredService
   ],
   bootstrap: [AppComponent]
 })
