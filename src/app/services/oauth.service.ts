@@ -17,7 +17,7 @@ export class OauthService {
     this.windowLocation = window.location;
 
     this.data = {
-      'oauth_url': '192.168.43.149:8087',
+      'oauth_url': '10.36.70.64:8087',
       'client_id': 'prime-front-end-key',
       'scope': null,
       'redirect_uri': `${this.windowLocation.origin}/dashboard`,

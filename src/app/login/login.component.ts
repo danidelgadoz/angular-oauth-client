@@ -23,13 +23,15 @@ export class LoginComponent implements OnInit {
 
   oauth() {
     this.oauthUrlLogin = `http://${this.oauthData.oauth_url}/oauth/authorize?client_id=${this.oauthData.client_id}&scope=&redirect_uri=${this.oauthData.redirect_uri}&response_type=${this.oauthData.response_type}`;
-
-    const url = prompt('Going to OauthLogin:', `${this.oauthUrlLogin}`);
-    if (url != null) {
-        this.oauthData.url = url;
-        this.oauthService.setData(this.oauthData);
-        window.location.href = url;
-    }
+    this.oauthData.url = this.oauthUrlLogin;
+    this.oauthService.setData(this.oauthData);
+    window.location.href = this.oauthData.url;
+    // const url = prompt('Going to OauthLogin:', `${this.oauthUrlLogin}`);
+    // if (url != null) {
+    //     this.oauthData.url = url;
+    //     this.oauthService.setData(this.oauthData);
+    //     window.location.href = url;
+    // }
   }
 
 }
