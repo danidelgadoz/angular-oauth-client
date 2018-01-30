@@ -4,8 +4,6 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { OauthService } from '../services/oauth.service';
 
-declare var $: any;
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -45,20 +43,6 @@ export class DashboardComponent implements OnInit {
         console.error('changeCodeForToken response from DashboardComponent', error);
       }
     );
-  }
-
-  testingOauthJq(code) {
-    this.oauthService.changeCodeForTokenJq();
-
-    const d = {
-      'oauth_url': '10.36.70.64:8087',
-      'grant_type': 'authorization_code',
-      'client_id': 'prime-front-end-key',
-      'client_secret': '49b67f2c-c662-11e7-a3b6-0242ac120003',
-      'redirect_uri': 'http://10.36.71.183:4200/dashboard',
-      'response_type': 'code',
-      'code': code
-    };
   }
 
 }

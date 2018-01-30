@@ -41,7 +41,6 @@
 
   <div class="col-md-12" style="margin-top: 16px;">
     <button class="btn btn-primary" [disabled]="!oauthData.code" (click)="testingOauth()">change code for token (Angular)</button>
-    <button class="btn btn-primary" [disabled]="!oauthData.code" (click)="testingOauthJq(oauthData.code)">change code for token (Jquery)</button>
     <span *ngIf="!oauthData.code">there is not oauth code</span>
   </div>
 </div>
