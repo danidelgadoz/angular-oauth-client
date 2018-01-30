@@ -42,7 +42,7 @@ export class OauthService {
     return this.http.post(url, {}, {headers: this.headers})
     .map((response: Response) => {
         const body = response.json();
-        console.log('OauthService response fron client service', body);
+        localStorage.setItem('oauthSession', JSON.stringify(body));
         return body;
     });
   }
