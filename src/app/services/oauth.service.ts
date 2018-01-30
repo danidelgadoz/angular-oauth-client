@@ -47,6 +47,10 @@ export class OauthService {
     });
   }
 
+  getApiToken() {
+    return localStorage.oauthSession ? 'Bearer ' + JSON.parse(localStorage.oauthSession).access_token : null;
+  }
+
   getData() {
     return this.data;
   }
