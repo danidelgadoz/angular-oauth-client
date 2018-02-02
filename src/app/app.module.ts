@@ -14,6 +14,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EndpointSecuredService } from './services/endpoint-secured/endpoint-secured.service';
 
 import { AuthInterceptor } from './interceptors/index';
+import { AuthGuard } from './guards/index';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { AuthInterceptor } from './interceptors/index';
     OauthService,
     EndpointSecuredService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
       this.oauthData.code = params['code'];
 
       if (this.oauthData.code) {
-        this.testingOauth();
+        // this.testingOauth();
       }
     });
   }
