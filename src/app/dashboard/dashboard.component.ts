@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { OauthService } from '../services/oauth.service';
 import { EndpointSecuredService } from '../services/endpoint-secured/endpoint-secured.service';
 
 @Component({
@@ -9,14 +8,8 @@ import { EndpointSecuredService } from '../services/endpoint-secured/endpoint-se
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  oauthData: any;
 
-  constructor(
-    private oauthService: OauthService,
-    private endpointSecuredService: EndpointSecuredService
-  ) {
-      this.oauthData = oauthService.getData();
-    }
+  constructor(private endpointSecuredService: EndpointSecuredService) { }
 
   ngOnInit() {
     console.log('DashboardComponent..');

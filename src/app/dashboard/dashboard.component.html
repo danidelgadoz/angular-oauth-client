@@ -2,45 +2,6 @@
   dashboard works!
 </h1>
 
-<div>
-  <div class="col-md-6">
-    <span>N° de cuenta: </span> <strong>{{userAccount}}</strong>
-    <br>
-    <br>
-
-    <div class="form-group">
-      <label for="oauth_url">oauth_url:</label>
-      <input class="form-control" id="oauth_url" [(ngModel)]="oauthData.oauth_url">
-    </div>
-    <div class="form-group">
-      <label for="grant_type">grant_type:</label>
-      <input class="form-control" id="grant_type" [(ngModel)]="oauthData.grant_type">
-    </div>
-    <div class="form-group">
-      <label for="client_id">client_id:</label>
-      <input disabled class="form-control" id="client_id" [(ngModel)]="oauthData.client_id">
-    </div>
-    <div class="form-group">
-        <label for="client_secret">client_secret:</label>
-        <input disabled class="form-control" id="client_secret" [(ngModel)]="oauthData.client_secret">
-      </div>
-    <div class="form-group">
-      <label for="redirect_uri">redirect_uri:</label>
-      <input class="form-control" id="redirect_uri" [(ngModel)]="oauthData.redirect_uri">
-    </div>
-    <div class="form-group">
-      <label for="code">code:</label>
-      <input disabled class="form-control" id="code" [(ngModel)]="oauthData.code">
-    </div>
-  </div>
-
-  <div class="col-md-12" style="margin-top: 8px;">
-    <span>Curl exchange token request: </span><br>
-    <strong>curl prime-front-end-key:49b67f2c-c662-11e7-a3b6-0242ac120003@{{oauthData.oauth_url}}/oauth/token -d grant_type=authorization_code -d client_id=prime-front-end-key -d redirect_uri={{oauthData.redirect_uri}} -d code={{oauthData.code}}</strong>
-  </div>
-
-  <div class="col-md-12" style="margin-top: 16px;">
-    <button class="btn btn-primary" (click)="requestEndpointSecured()">Request to the endpoint secured</button>
-    <span *ngIf="!oauthData.code">there is not oauth code</span>
-  </div>
+<div class="col-md-12" style="margin-top: 16px;">
+  <button class="btn btn-primary" (click)="requestEndpointSecured()">Request to the endpoint secured</button>
 </div>
