@@ -4,35 +4,17 @@
 
 <div>
   <div class="col-md-6">
-    <span>N° de cuenta: </span> <strong>{{userAccount}}</strong>
+    <span>N° de cuenta: </span> <strong>4557886000000018</strong>
     <br>
     <br>
-
-    <div class="form-group">
-      <label for="oauth_url">oauth_url:</label>
-      <input class="form-control" id="oauth_url" [(ngModel)]="oauthData.oauth_url">
-    </div>
-    <div class="form-group">
-      <label for="client_id">client_id:</label>
-      <input disabled class="form-control" id="client_id" [(ngModel)]="oauthData.client_id">
-    </div>
-    <div class="form-group">
-      <label for="redirect_uri">redirect_uri:</label>
-      <input class="form-control" id="redirect_uri" [(ngModel)]="oauthData.redirect_uri">
-    </div>
-    <div class="form-group">
-      <label for="response_type">response_type:</label>
-      <input disabled class="form-control" id="response_type" [(ngModel)]="oauthData.response_type">
-    </div>
-  </div>
 
   <div class="col-md-12" style="margin-top: 8px;">
       <span>Oauth Login url: </span><br>
-      <strong>http://{{oauthData.oauth_url}}/oauth/authorize?client_id={{this.oauthData.client_id}}&scope=&redirect_uri={{this.oauthData.redirect_uri}}&response_type={{this.oauthData.response_type}}</strong>
+      <strong>{{ oauthUrlLogin }}</strong>
     </div>
 
   <div class="col-md-12" style="margin-top: 16px;">
-    <button class="btn btn-primary" (click)="requestEndpointSecured()">Request to the endpoint secured</button>
+    <button class="btn btn-default" (click)="requestEndpointSecured()">Request to the endpoint secured</button>
     <button class="btn btn-primary" (click)="oauth()">Go to oauth server login page</button>
   </div>
 </div>
