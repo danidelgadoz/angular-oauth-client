@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
+import { Router } from '@angular/router';
 
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -14,7 +15,7 @@ export class OauthService {
   data: any;
   windowLocation: any;
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private router: Router) {
     this.windowLocation = window.location;
 
     this.data = {
@@ -65,6 +66,11 @@ export class OauthService {
 
   setData(data) {
     localStorage.setItem('oauthData', JSON.stringify(data));
+  }
+
+  logout() {
+    localStorage.removeItem('oauthSession');
+    this.router.navigate(['/login']);
   }
 
 }

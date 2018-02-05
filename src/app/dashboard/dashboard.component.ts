@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { OauthService } from '../services/oauth.service';
 import { EndpointSecuredService } from '../services/endpoint-secured/endpoint-secured.service';
 
 @Component({
@@ -9,7 +10,10 @@ import { EndpointSecuredService } from '../services/endpoint-secured/endpoint-se
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private endpointSecuredService: EndpointSecuredService) { }
+  constructor(
+    private oauthService: OauthService,
+    private endpointSecuredService: EndpointSecuredService
+  ) { }
 
   ngOnInit() {
     console.log('DashboardComponent..');
@@ -19,6 +23,10 @@ export class DashboardComponent implements OnInit {
     this.endpointSecuredService.call().subscribe(data => {
       console.log(data);
     });
+  }
+
+  logout() {
+    this.oauthService.logout();
   }
 
 }
