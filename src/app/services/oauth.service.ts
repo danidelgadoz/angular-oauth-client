@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
+
+import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/Rx';
 
 @Injectable()
 export class OauthService {
@@ -15,7 +18,8 @@ export class OauthService {
     this.windowLocation = window.location;
 
     this.data = {
-      'oauth_url': '10.36.70.64:8087',
+      'oauth_url': '192.168.43.149:8087',
+      // 'oauth_url': '10.36.70.64:8087',
       'client_id': 'prime-front-end-key',
       'scope': null,
       'redirect_uri': `${this.windowLocation.origin}/dashboard`,
@@ -28,7 +32,7 @@ export class OauthService {
     localStorage.setItem('oauthData', JSON.stringify(this.data));
   }
 
-  changeCodeForToken() {
+  changeCodeForToken(): Observable<any> {
     const d = {
       'oauth_url': this.data.oauth_url,
       'grant_type': this.data.grant_type,
@@ -44,6 +48,10 @@ export class OauthService {
         const body = response.json();
         localStorage.setItem('oauthSession', JSON.stringify(body));
         return body;
+    })
+    .catch(e => {
+      const body = e.json();
+      return Observable.throw('Unauthorized');
     });
   }
 

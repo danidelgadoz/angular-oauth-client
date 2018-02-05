@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class EndpointSecuredService {
-  private clientUrl = 'http://10.36.70.64:8080';
+  private clientUrl = 'http://192.168.43.149:8080';
 
   constructor(private http: HttpClient) { }
 
