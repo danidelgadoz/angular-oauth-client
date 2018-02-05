@@ -12,7 +12,7 @@ export class EndpointSecuredService {
 
   call(): Observable<any> {
     return this.http.get(`${this.clientUrl}/bars/1`)
-      .map((res: any) => res.data);
+      .map((res: any) => res);
   }
 
 }
