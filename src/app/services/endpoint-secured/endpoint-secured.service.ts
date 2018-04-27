@@ -4,9 +4,11 @@ import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/toPromise';
 
+import { environment } from '../../../environments/environment'
+
 @Injectable()
 export class EndpointSecuredService {
-  private clientUrl = 'http://192.168.43.149:8080';
+  private clientUrl = environment.backend.host;
 
   constructor(private http: HttpClient) { }
 

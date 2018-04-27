@@ -5,6 +5,9 @@
 
 export const environment = {
   production: false,
+  backend: {
+    host: 'http://192.168.43.149:8080'
+  },
   oauth: {
     'oauth_url': '192.168.43.149:8087',
     'client_id': 'prime-front-end-key',
