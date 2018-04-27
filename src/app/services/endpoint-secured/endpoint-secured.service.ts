@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/toPromise';
 
-import { environment } from '../../../environments/environment'
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class EndpointSecuredService {

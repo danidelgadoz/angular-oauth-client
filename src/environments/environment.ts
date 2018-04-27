@@ -9,12 +9,12 @@ export const environment = {
     host: 'http://192.168.43.149:8080'
   },
   oauth: {
-    'oauth_url': '192.168.43.149:8087',
-    'client_id': 'prime-front-end-key',
-    'scope': null,
-    'redirect_uri': `http://127.0.0.1:4200/dashboard`,
-    'response_type': 'code',
-    'grant_type': 'authorization_code',
-    'client_secret': '49b67f2c-c662-11e7-a3b6-0242ac120003'
+    oauth_url: '192.168.43.149:8087',
+    client_id: 'prime-front-end-key',
+    scope: null,
+    redirect_uri: `http://127.0.0.1:4200/dashboard`,
+    response_type: 'code',
+    grant_type: 'authorization_code',
+    client_secret: '49b67f2c-c662-11e7-a3b6-0242ac120003'
   }
 };
