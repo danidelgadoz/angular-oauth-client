@@ -46,7 +46,7 @@ export class OauthService {
   }
 
   getApiToken() {
-    return localStorage.oauthSession ? 'Bearer ' + JSON.parse(localStorage.oauthSession).access_token : null;
+    return localStorage.oauthSession ? 'Bearer ' + JSON.parse(localStorage.oauthSession).access_token : '';
   }
 
   getData() {
@@ -60,6 +60,13 @@ export class OauthService {
   logout() {
     localStorage.removeItem('oauthSession');
     this.router.navigate(['/login']);
+
+    const logoutHeaders = new Headers({
+      'Authorization': `Bearer ${this.getApiToken()}`
+    });
+
+    return this.http.get(`http://${this.data.oauth_url}/oauth/logout`, {headers: logoutHeaders})
+    .map((response: Response) => response.json());
   }
 
 }
